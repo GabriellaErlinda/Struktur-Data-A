@@ -14,7 +14,7 @@ typedef struct
 //2. INPUT DATA
 void inputMahasiswa(Mahasiswa mhs[], int &numStudents) 
 {
-    if (numStudents < 10) {
+    if (numStudents < 50) {
         cout << "Name: ";
         cin >> mhs[numStudents].name;
         cout << "Gender: ";
@@ -34,7 +34,7 @@ void inputMahasiswa(Mahasiswa mhs[], int &numStudents)
 void printMahasiswa(const Mahasiswa mhs[], int numStudents)     
 {
     for (int i = 0; i < numStudents; i++) {
-        cout << "Student " << i+1 << ":" << endl;
+        cout << "==== Student " << i+1 << ": ====" << endl;
         cout << "Name: " << mhs[i].name << endl;
         cout << "Gender: " << mhs[i].gender << endl;
         cout << "NRP: " << mhs[i].nrp << endl;
@@ -96,6 +96,7 @@ void changeMahasiswa(Mahasiswa mhs[], int numStudents)
                 cout << "Age: ";
                 cin >> mhs[i].age;
                 cout << "Data for student '" << nameToChange << "' has been changed." << endl;
+                cout << endl;
                 found = true;
                 break;
             }
@@ -105,8 +106,8 @@ void changeMahasiswa(Mahasiswa mhs[], int numStudents)
             cout << "No student with the name '" << nameToChange << "' found." << endl;
         }
     } else {
-        cout << "No students to change." << endl;
-    }
+            cout << "No students to change." << endl;
+        }
 }
 
 //5. SEARCH DATA
@@ -121,11 +122,12 @@ void searchMahasiswa(const Mahasiswa mhs[], int numStudents)
         bool found = false;
         for (int i = 0; i < numStudents; i++) {
             if (mhs[i].name == nameToSearch) {
-                cout << "Data for student '" << nameToSearch << "':" << endl;
+                cout << "==== Data for student '" << nameToSearch << "': ====" << endl;
                 cout << "Name: " << mhs[i].name << endl;
                 cout << "Gender: " << mhs[i].gender << endl;
                 cout << "NRP: " << mhs[i].nrp << endl;
                 cout << "Age: " << mhs[i].age << endl;
+                cout << endl;
                 found = true;
                 break; 
             }
@@ -154,7 +156,6 @@ int main()
         cout << "3: Delete data" << endl;
         cout << "4: Change data" << endl;
         cout << "5: Search data" << endl;
-        cout << "6: Exit" << endl;
         cout << "Enter your choice: ";
         
         int choice;
